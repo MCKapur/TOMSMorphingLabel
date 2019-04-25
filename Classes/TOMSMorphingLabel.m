@@ -371,6 +371,11 @@
             
             NSMutableDictionary *attributionStage = self.attributionStages[attributionIndex];
             CGFloat kernFactor = [attributionStage[kTOMSKernFactorAttributeName] floatValue];
+            
+            if (range.location + range.length > aString.length) {
+	            continue;
+	        }
+	
             NSString *character = [aString substringWithRange:range];
             CGSize characterSize = CGSizeZero;
 
